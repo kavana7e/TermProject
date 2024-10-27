@@ -1,4 +1,6 @@
-﻿namespace TermProject.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TermProject.Models
 {
     public class Season
     {

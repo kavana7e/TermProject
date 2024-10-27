@@ -16,11 +16,11 @@ namespace TermProject.Models
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Designer>().HasData(
-                new Designer { DesignerId = 1, Name = "Elia Schall"},
-                new Designer { DesignerId = 2, Name = "Romy Linder"},
-                new Designer { DesignerId = 3, Name = "Hugo Karlen"},
-                new Designer { DesignerId = 4, Name = "Elinora Felix"},
-                new Designer { DesignerId = 5, Name = "Tessa Abeline" });
+                new Designer { DesignerId = 1, FirstName = "Elia", LastName = "Schall", Email = "eschall@calliopezoisite.com"},
+                new Designer { DesignerId = 2, FirstName = "Romy", LastName = "Linder", Email = "rlinder@calliopezoisite.com" },
+                new Designer { DesignerId = 3, FirstName = "Hugo", LastName = "Karlen", Email = "hkarlen@calliopezoisite.com" },
+                new Designer { DesignerId = 4, FirstName = "Elinora", LastName = "Felix", Email = "efelix@calliopezoisite.com" },
+                new Designer { DesignerId = 5, FirstName = "Tessa", LastName = "Abeline", Email = "tabeline@calliopezoisite.com" });
 
             modelBuilder.Entity<Season>().HasData(
                 new Season { SeasonId = "S", Name = "Spring/Summer" },

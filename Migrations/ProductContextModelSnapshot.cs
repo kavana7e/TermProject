@@ -17,10 +17,10 @@ namespace TermProject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.33")
+                .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("TermProject.Models.Designer", b =>
                 {
@@ -28,10 +28,23 @@ namespace TermProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesignerId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesignerId"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)")
+                        .HasColumnName("First Name");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)")
+                        .HasColumnName("Last Name");
 
                     b.HasKey("DesignerId");
 
@@ -41,27 +54,37 @@ namespace TermProject.Migrations
                         new
                         {
                             DesignerId = 1,
-                            Name = "Elia Schall"
+                            Email = "eschall@calliopezoisite.com",
+                            FirstName = "Elia",
+                            LastName = "Schall"
                         },
                         new
                         {
                             DesignerId = 2,
-                            Name = "Romy Linder"
+                            Email = "rlinder@calliopezoisite.com",
+                            FirstName = "Romy",
+                            LastName = "Linder"
                         },
                         new
                         {
                             DesignerId = 3,
-                            Name = "Hugo Karlen"
+                            Email = "hkarlen@calliopezoisite.com",
+                            FirstName = "Hugo",
+                            LastName = "Karlen"
                         },
                         new
                         {
                             DesignerId = 4,
-                            Name = "Elinora Felix"
+                            Email = "efelix@calliopezoisite.com",
+                            FirstName = "Elinora",
+                            LastName = "Felix"
                         },
                         new
                         {
                             DesignerId = 5,
-                            Name = "Tessa Abeline"
+                            Email = "tabeline@calliopezoisite.com",
+                            FirstName = "Tessa",
+                            LastName = "Abeline"
                         });
                 });
 
@@ -71,14 +94,15 @@ namespace TermProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
 
                     b.Property<int>("DesignerId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SeasonId")
                         .IsRequired()
@@ -86,7 +110,8 @@ namespace TermProject.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int?>("Year")
                         .IsRequired()
